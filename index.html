@@ -1,0 +1,864 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Hiperliteratura — Clássicos expandidos para o século XXI</title>
+  <meta name="description" content="Hiperliteratura é uma coleção da Obliq Livros, com curadoria de C.S. Soares, dedicada a publicar centenas de clássicos brasileiros e mundiais em edições digitais modernas, muitos inéditos no Brasil." />
+  <meta property="og:title" content="Hiperliteratura — Clássicos expandidos para o século XXI" />
+  <meta property="og:description" content="Centenas de clássicos brasileiros e mundiais em edições digitais modernas, elegantes e enriquecidas." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://hiperliteratura.com.br" />
+  <meta property="og:image" content="assets/notre-dame-de-paris.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --blue: #071d35;
+      --blue-2: #0b2a4b;
+      --blue-3: #103e68;
+      --white: #ffffff;
+      --cream: #f7f1e8;
+      --paper: #fbf7ef;
+      --ink: #101923;
+      --muted: #5e6874;
+      --gold: #c79a42;
+      --gold-2: #e7c06b;
+      --line: rgba(16,25,35,.12);
+      --line-dark: rgba(255,255,255,.16);
+      --shadow: 0 30px 80px rgba(7,29,53,.20);
+      --radius: 28px;
+      --max: 1180px;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: var(--white);
+      color: var(--ink);
+      line-height: 1.6;
+    }
+
+    a { color: inherit; text-decoration: none; }
+    img { max-width: 100%; display: block; }
+    .container { width: min(var(--max), calc(100% - 40px)); margin: 0 auto; }
+
+    .nav {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: rgba(255,255,255,.88);
+      backdrop-filter: blur(18px);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .nav-inner {
+      min-height: 76px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      font-weight: 900;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      color: var(--blue);
+    }
+
+    .brand-mark {
+      width: 42px;
+      height: 42px;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      background: var(--blue);
+      color: var(--gold-2);
+      font-family: "Cormorant Garamond", serif;
+      font-size: 24px;
+      font-weight: 700;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+      color: var(--muted);
+      font-size: 14px;
+      font-weight: 700;
+    }
+
+    .nav-links a:hover { color: var(--blue); }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 50px;
+      padding: 0 24px;
+      border-radius: 999px;
+      font-weight: 900;
+      letter-spacing: -.01em;
+      transition: transform .2s ease, box-shadow .2s ease, background .2s ease;
+      border: 1px solid transparent;
+      cursor: pointer;
+      white-space: nowrap;
+    }
+
+    .btn:hover { transform: translateY(-2px); }
+    .btn-primary {
+      background: linear-gradient(135deg, var(--gold-2), var(--gold));
+      color: #171003;
+      box-shadow: 0 16px 36px rgba(199,154,66,.28);
+    }
+
+    .btn-secondary {
+      border-color: rgba(7,29,53,.18);
+      color: var(--blue);
+      background: rgba(7,29,53,.04);
+    }
+
+    .btn-light {
+      background: #fff;
+      color: var(--blue);
+      box-shadow: 0 16px 36px rgba(0,0,0,.16);
+    }
+
+    .hero {
+      position: relative;
+      min-height: 760px;
+      overflow: hidden;
+      background:
+        radial-gradient(circle at 20% 16%, rgba(231,192,107,.20), transparent 30%),
+        linear-gradient(135deg, #ffffff 0%, #f7f1e8 46%, #eaf0f7 100%);
+      padding: 86px 0 70px;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: .98fr 1.02fr;
+      gap: 52px;
+      align-items: center;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 8px 13px;
+      border: 1px solid rgba(199,154,66,.35);
+      border-radius: 999px;
+      color: #896223;
+      background: rgba(199,154,66,.10);
+      font-size: 13px;
+      font-weight: 900;
+      margin-bottom: 24px;
+      text-transform: uppercase;
+      letter-spacing: .08em;
+    }
+
+    .eyebrow span {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--gold);
+      box-shadow: 0 0 18px var(--gold);
+    }
+
+    h1, h2, h3 {
+      font-family: "Cormorant Garamond", Georgia, serif;
+      line-height: .98;
+      margin: 0;
+      letter-spacing: -.045em;
+    }
+
+    h1 {
+      font-size: clamp(52px, 7.6vw, 92px);
+      color: var(--blue);
+    }
+
+    .hero p {
+      margin: 26px 0 0;
+      color: #4e5b67;
+      font-size: clamp(18px, 2vw, 22px);
+      max-width: 670px;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-top: 34px;
+    }
+
+    .hero-stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+      margin-top: 44px;
+    }
+
+    .stat {
+      padding: 18px;
+      border: 1px solid var(--line);
+      border-radius: 22px;
+      background: rgba(255,255,255,.72);
+      box-shadow: 0 18px 45px rgba(7,29,53,.07);
+    }
+
+    .stat strong {
+      display: block;
+      color: var(--blue);
+      font-size: 24px;
+      line-height: 1;
+      margin-bottom: 8px;
+    }
+
+    .stat small { color: var(--muted); }
+
+    .cover-hero {
+      position: relative;
+      min-height: 610px;
+    }
+
+    .cover {
+      position: absolute;
+      width: 235px;
+      aspect-ratio: 2/3;
+      border-radius: 18px;
+      overflow: hidden;
+      box-shadow: 0 30px 70px rgba(7,29,53,.34);
+      border: 1px solid rgba(255,255,255,.55);
+      background: #ddd;
+    }
+
+    .cover img { width: 100%; height: 100%; object-fit: cover; }
+
+    .cover.main {
+      width: 300px;
+      left: 50%;
+      top: 34px;
+      transform: translateX(-50%);
+      z-index: 5;
+    }
+
+    .cover.left {
+      left: 10px;
+      top: 110px;
+      transform: rotate(-8deg);
+      z-index: 3;
+    }
+
+    .cover.right {
+      right: 0;
+      top: 122px;
+      transform: rotate(8deg);
+      z-index: 2;
+    }
+
+    .cover.back-left {
+      left: 118px;
+      top: 0;
+      width: 205px;
+      transform: rotate(5deg);
+      opacity: .92;
+      z-index: 1;
+    }
+
+    .cover.back-right {
+      right: 115px;
+      top: 8px;
+      width: 205px;
+      transform: rotate(-5deg);
+      opacity: .92;
+      z-index: 1;
+    }
+
+    .floating-card {
+      position: absolute;
+      left: 50%;
+      bottom: 0;
+      transform: translateX(-50%);
+      width: min(92%, 500px);
+      padding: 24px;
+      border-radius: 26px;
+      background: rgba(7,29,53,.94);
+      color: #fff;
+      box-shadow: 0 30px 80px rgba(7,29,53,.28);
+      border: 1px solid rgba(255,255,255,.16);
+      z-index: 7;
+    }
+
+    .floating-card strong {
+      display: block;
+      font-family: "Cormorant Garamond", serif;
+      font-size: 30px;
+      line-height: 1;
+      margin-bottom: 8px;
+      color: var(--gold-2);
+    }
+
+    .section { padding: 92px 0; }
+    .section-white { background: #fff; color: var(--ink); }
+    .section-blue {
+      background:
+        radial-gradient(circle at 85% 8%, rgba(231,192,107,.12), transparent 28%),
+        linear-gradient(180deg, var(--blue), var(--blue-2));
+      color: #fff;
+    }
+    .section-cream { background: var(--paper); color: var(--ink); }
+
+    .section-blue p,
+    .section-blue .muted { color: rgba(255,255,255,.72); }
+
+    .section-head {
+      max-width: 790px;
+      margin-bottom: 46px;
+    }
+
+    .section-head.center {
+      text-align: center;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .section-head h2 {
+      font-size: clamp(38px, 5.2vw, 64px);
+      color: inherit;
+    }
+
+    .section-head p {
+      margin: 18px 0 0;
+      font-size: 19px;
+      color: var(--muted);
+    }
+
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .card {
+      padding: 30px;
+      border-radius: var(--radius);
+      background: #fff;
+      border: 1px solid var(--line);
+      box-shadow: 0 18px 45px rgba(7,29,53,.07);
+    }
+
+    .section-blue .card {
+      background: rgba(255,255,255,.065);
+      border: 1px solid var(--line-dark);
+      box-shadow: none;
+    }
+
+    .card .icon {
+      width: 46px;
+      height: 46px;
+      display: grid;
+      place-items: center;
+      border-radius: 16px;
+      background: rgba(199,154,66,.16);
+      color: var(--gold);
+      font-weight: 900;
+      margin-bottom: 18px;
+    }
+
+    .card h3 {
+      font-size: 28px;
+      letter-spacing: -.03em;
+      margin-bottom: 12px;
+      color: inherit;
+    }
+
+    .card p { margin: 0; color: var(--muted); }
+    .section-blue .card p { color: rgba(255,255,255,.70); }
+
+    .feature {
+      display: grid;
+      grid-template-columns: .9fr 1.1fr;
+      gap: 56px;
+      align-items: center;
+    }
+
+    .panel {
+      border-radius: 34px;
+      padding: 32px;
+      background: var(--blue);
+      color: #fff;
+      border: 1px solid rgba(255,255,255,.12);
+      box-shadow: var(--shadow);
+    }
+
+    .index-list {
+      display: grid;
+      gap: 12px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .index-list li {
+      display: flex;
+      justify-content: space-between;
+      gap: 18px;
+      padding: 16px 0;
+      border-bottom: 1px solid rgba(255,255,255,.12);
+      color: rgba(255,255,255,.70);
+    }
+
+    .index-list li:last-child { border-bottom: none; }
+    .index-list b { color: #fff; }
+
+    .cover-strip {
+      display: grid;
+      grid-template-columns: repeat(8, 1fr);
+      gap: 14px;
+      margin-top: 36px;
+    }
+
+    .cover-tile {
+      overflow: hidden;
+      border-radius: 18px;
+      box-shadow: 0 22px 50px rgba(7,29,53,.22);
+      border: 1px solid rgba(255,255,255,.40);
+      background: #ddd;
+      transition: transform .2s ease;
+    }
+
+    .cover-tile:hover { transform: translateY(-6px); }
+    .cover-tile img {
+      width: 100%;
+      aspect-ratio: 2/3;
+      object-fit: cover;
+    }
+
+    .editor {
+      display: grid;
+      grid-template-columns: 420px 1fr;
+      gap: 56px;
+      align-items: center;
+    }
+
+    .editor-photo {
+      overflow: hidden;
+      border-radius: 36px;
+      border: 1px solid rgba(255,255,255,.18);
+      box-shadow: 0 28px 70px rgba(0,0,0,.28);
+      background: #ddd;
+    }
+
+    .editor-photo img {
+      width: 100%;
+      height: 560px;
+      object-fit: cover;
+      object-position: center top;
+    }
+
+    .quote {
+      margin-top: 28px;
+      padding: 24px;
+      border-left: 4px solid var(--gold);
+      background: rgba(231,192,107,.11);
+      border-radius: 0 22px 22px 0;
+      font-family: "Cormorant Garamond", serif;
+      font-size: 28px;
+      line-height: 1.25;
+      color: var(--gold-2);
+    }
+
+    .catalog {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 18px;
+    }
+
+    .catalog-item {
+      min-height: 230px;
+      border-radius: 24px;
+      padding: 22px;
+      background: #fff;
+      border: 1px solid var(--line);
+      box-shadow: 0 18px 45px rgba(7,29,53,.07);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .catalog-item span {
+      color: var(--gold);
+      font-weight: 900;
+      font-size: 13px;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+
+    .catalog-item h3 {
+      font-size: 28px;
+      margin-top: 10px;
+      color: var(--blue);
+    }
+
+    .catalog-item p {
+      color: var(--muted);
+      margin: 14px 0 0;
+      font-size: 15px;
+    }
+
+    .lead {
+      background:
+        linear-gradient(135deg, rgba(7,29,53,.93), rgba(11,42,75,.88)),
+        url("assets/hamlet.png") center/cover;
+      border-radius: 42px;
+      padding: 58px;
+      border: 1px solid rgba(255,255,255,.16);
+      box-shadow: var(--shadow);
+      display: grid;
+      grid-template-columns: 1fr 420px;
+      gap: 34px;
+      align-items: center;
+      color: #fff;
+      overflow: hidden;
+    }
+
+    .lead h2 { font-size: clamp(38px, 5vw, 60px); }
+    .lead p {
+      color: rgba(255,255,255,.78);
+      font-size: 18px;
+      margin: 18px 0 0;
+    }
+
+    form {
+      display: grid;
+      gap: 12px;
+      background: rgba(255,255,255,.10);
+      padding: 18px;
+      border-radius: 26px;
+      border: 1px solid rgba(255,255,255,.16);
+      backdrop-filter: blur(8px);
+    }
+
+    input {
+      width: 100%;
+      min-height: 54px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,.18);
+      background: rgba(255,255,255,.92);
+      color: var(--ink);
+      padding: 0 18px;
+      font: inherit;
+      outline: none;
+    }
+
+    input::placeholder { color: rgba(16,25,35,.55); }
+
+    .faq { display: grid; gap: 14px; }
+
+    details {
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      padding: 20px 22px;
+      background: #fff;
+      box-shadow: 0 14px 32px rgba(7,29,53,.05);
+    }
+
+    summary {
+      cursor: pointer;
+      font-weight: 900;
+      color: var(--blue);
+    }
+
+    details p {
+      color: var(--muted);
+      margin: 12px 0 0;
+    }
+
+    footer {
+      padding: 46px 0;
+      color: rgba(255,255,255,.70);
+      background: var(--blue);
+      border-top: 1px solid rgba(255,255,255,.12);
+    }
+
+    .footer-inner {
+      display: flex;
+      justify-content: space-between;
+      gap: 24px;
+      flex-wrap: wrap;
+    }
+
+    @media (max-width: 1080px) {
+      .cover-strip { grid-template-columns: repeat(4, 1fr); }
+    }
+
+    @media (max-width: 980px) {
+      .hero-grid, .feature, .editor, .lead { grid-template-columns: 1fr; }
+      .cover-hero { min-height: 570px; }
+      .grid-3, .catalog { grid-template-columns: repeat(2, 1fr); }
+      .editor-photo img { height: 480px; }
+      .nav-links { display: none; }
+    }
+
+    @media (max-width: 640px) {
+      .container { width: min(100% - 28px, var(--max)); }
+      .hero { padding-top: 54px; }
+      .hero-stats, .grid-3, .catalog, .cover-strip { grid-template-columns: 1fr; }
+      .cover-hero { min-height: 710px; }
+      .cover.main { width: 245px; }
+      .cover.left, .cover.right, .cover.back-left, .cover.back-right { width: 155px; }
+      .cover.left { left: 0; top: 275px; }
+      .cover.right { right: 0; top: 300px; }
+      .cover.back-left { left: 10px; top: 80px; }
+      .cover.back-right { right: 10px; top: 82px; }
+      .floating-card { bottom: 0; }
+      .lead { padding: 30px; border-radius: 30px; }
+      .section { padding: 64px 0; }
+    }
+  </style>
+</head>
+
+<body>
+  <header class="nav">
+    <div class="container nav-inner">
+      <a class="brand" href="#top" aria-label="Hiperliteratura">
+        <span class="brand-mark">H</span>
+        <span>Hiperliteratura</span>
+      </a>
+      <nav class="nav-links" aria-label="Navegação principal">
+        <a href="#colecao">Coleção</a>
+        <a href="#diferenciais">Diferenciais</a>
+        <a href="#editor">Curadoria</a>
+        <a href="#catalogo">Catálogo</a>
+        <a href="#lista">Lista</a>
+      </nav>
+      <a class="btn btn-primary" href="#lista">Receber novidades</a>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <div class="container hero-grid">
+        <div>
+          <div class="eyebrow"><span></span> Uma coleção da Obliq Livros</div>
+          <h1>Clássicos imortais em edições digitais de impacto.</h1>
+          <p>Centenas de clássicos da literatura brasileira e mundial em edições modernas, elegantes, comentadas e ilustradas — muitos deles inéditos no Brasil.</p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#lista">Entrar na lista de leitores</a>
+            <a class="btn btn-secondary" href="#colecao">Conhecer o projeto</a>
+          </div>
+          <div class="hero-stats" aria-label="Destaques do projeto">
+            <div class="stat"><strong>600+</strong><small>clássicos previstos na primeira fase</small></div>
+            <div class="stat"><strong>Digital</strong><small>edições preparadas para leitura contemporânea</small></div>
+            <div class="stat"><strong>C.S. Soares</strong><small>curadoria editorial</small></div>
+          </div>
+        </div>
+
+        <div class="cover-hero" aria-label="Capas da coleção Hiperliteratura">
+          <figure class="cover back-left"><img src="assets/os-tres-mosqueteiros.png" alt="Capa de Os Três Mosqueteiros"></figure>
+          <figure class="cover back-right"><img src="assets/dracula.png" alt="Capa de Drácula"></figure>
+          <figure class="cover left"><img src="assets/no-caminho-de-swann.png" alt="Capa de No Caminho de Swann"></figure>
+          <figure class="cover right"><img src="assets/a-guerra-dos-mundos.png" alt="Capa de A Guerra dos Mundos"></figure>
+          <figure class="cover main"><img src="assets/notre-dame-de-paris.png" alt="Capa de Notre-Dame de Paris"></figure>
+          <div class="floating-card">
+            <strong>Uma biblioteca viva.</strong>
+            <span>Texto, contexto, notas, imagens, mapas, cronologias e design editorial em uma experiência de leitura expandida.</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="colecao" class="section section-white">
+      <div class="container feature">
+        <div class="section-head">
+          <h2>Uma nova forma de ler os clássicos.</h2>
+          <p>A Hiperliteratura trata cada livro como um universo: texto, contexto, história, imagens, mapas, notas e caminhos de leitura reunidos em uma experiência editorial mais rica.</p>
+        </div>
+        <div class="panel">
+          <ul class="index-list">
+            <li><b>Texto integral</b><span>preparado e revisado</span></li>
+            <li><b>Apresentação editorial</b><span>contexto de leitura</span></li>
+            <li><b>Notas e glossários</b><span>camadas de compreensão</span></li>
+            <li><b>Iconografia</b><span>imagens e documentos</span></li>
+            <li><b>Cartografia literária</b><span>lugares, rotas e mapas</span></li>
+            <li><b>Extras digitais</b><span>materiais complementares</span></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="diferenciais" class="section section-blue">
+      <div class="container">
+        <div class="section-head">
+          <h2>O clássico como experiência expandida.</h2>
+          <p>A coleção une rigor editorial, curadoria intelectual e design digital para aproximar grandes livros dos leitores contemporâneos.</p>
+        </div>
+
+        <div class="grid-3">
+          <article class="card">
+            <div class="icon">01</div>
+            <h3>Curadoria criteriosa</h3>
+            <p>Seleção de obras fundamentais, raras, esquecidas ou pouco acessíveis ao público brasileiro.</p>
+          </article>
+          <article class="card">
+            <div class="icon">02</div>
+            <h3>Edições elegantes</h3>
+            <p>Tipografia, navegação e estrutura pensadas para uma leitura digital confortável e sofisticada.</p>
+          </article>
+          <article class="card">
+            <div class="icon">03</div>
+            <h3>Contexto histórico</h3>
+            <p>Apresentações, cronologias e materiais de apoio que situam cada obra em seu tempo.</p>
+          </article>
+          <article class="card">
+            <div class="icon">04</div>
+            <h3>Leitura guiada</h3>
+            <p>Notas, glossários e recursos editoriais que ajudam o leitor a atravessar obras complexas.</p>
+          </article>
+          <article class="card">
+            <div class="icon">05</div>
+            <h3>Biblioteca mundial</h3>
+            <p>Clássicos brasileiros, portugueses, europeus, góticos, científicos, ensaísticos e narrativos.</p>
+          </article>
+          <article class="card">
+            <div class="icon">06</div>
+            <h3>Muitos inéditos no Brasil</h3>
+            <p>Recuperação de títulos ainda ausentes ou pouco disponíveis no mercado editorial brasileiro contemporâneo.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-white">
+      <div class="container">
+        <div class="section-head center">
+          <h2>Capas com força de coleção.</h2>
+          <p>Uma identidade visual premium para valorizar cada obra e criar reconhecimento imediato da marca Hiperliteratura.</p>
+        </div>
+        <div class="cover-strip">
+          <div class="cover-tile"><img src="assets/a-metamorfose.png" alt="A Metamorfose"></div>
+          <div class="cover-tile"><img src="assets/notre-dame-de-paris.png" alt="Notre-Dame de Paris"></div>
+          <div class="cover-tile"><img src="assets/no-caminho-de-swann.png" alt="No Caminho de Swann"></div>
+          <div class="cover-tile"><img src="assets/os-tres-mosqueteiros.png" alt="Os Três Mosqueteiros"></div>
+          <div class="cover-tile"><img src="assets/vidas-secas.png" alt="Vidas Secas"></div>
+          <div class="cover-tile"><img src="assets/dracula.png" alt="Drácula"></div>
+          <div class="cover-tile"><img src="assets/hamlet.png" alt="Hamlet"></div>
+          <div class="cover-tile"><img src="assets/a-guerra-dos-mundos.png" alt="A Guerra dos Mundos"></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="editor" class="section section-blue">
+      <div class="container editor">
+        <div class="editor-photo">
+          <img src="assets/cs-soares-editor.jpg" alt="C.S. Soares, editor e curador da coleção Hiperliteratura">
+        </div>
+        <div>
+          <div class="eyebrow"><span></span> Curadoria editorial</div>
+          <h2>C.S. Soares</h2>
+          <p class="muted" style="font-size:20px;margin-top:18px;">Editor, pesquisador, escritor e curador da coleção Hiperliteratura.</p>
+          <p>A curadoria da Hiperliteratura é conduzida por C.S. Soares, editor da Obliq Livros e pesquisador dedicado à recuperação, anotação e difusão dos clássicos.</p>
+          <p>Com experiência em edição, tecnologia, gestão da informação e pesquisa literária, C.S. Soares orienta a seleção das obras, a preparação dos textos, a construção dos aparatos críticos e o desenvolvimento das experiências de leitura que caracterizam a coleção.</p>
+          <div class="quote">“Os clássicos não pertencem ao passado. Eles pertencem aos leitores que ainda sabem procurá-los.”</div>
+        </div>
+      </div>
+    </section>
+
+    <section id="catalogo" class="section section-white">
+      <div class="container">
+        <div class="section-head">
+          <h2>Uma coleção em expansão permanente.</h2>
+          <p>Serão centenas de obras publicadas progressivamente, formando uma biblioteca digital ampla, confiável e duradoura.</p>
+        </div>
+
+        <div class="catalog">
+          <article class="catalog-item"><div><span>Linha 01</span><h3>Clássicos brasileiros</h3><p>Machado, Alencar, Lima Barreto, Aluísio Azevedo, Júlia Lopes, Graciliano e muitos outros.</p></div></article>
+          <article class="catalog-item"><div><span>Linha 02</span><h3>Biblioteca universal</h3><p>Obras fundamentais da tradição europeia e mundial em edições digitais modernas.</p></div></article>
+          <article class="catalog-item"><div><span>Linha 03</span><h3>Obras raras</h3><p>Títulos esquecidos, pouco acessíveis ou fora de circulação no Brasil.</p></div></article>
+          <article class="catalog-item"><div><span>Linha 04</span><h3>Inéditos no Brasil</h3><p>Autores e obras ainda não incorporados ao repertório editorial brasileiro contemporâneo.</p></div></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-cream">
+      <div class="container">
+        <div class="section-head">
+          <h2>Para quem é a Hiperliteratura?</h2>
+          <p>Para leitores, estudantes, professores, clubes de leitura e todos que desejam compreender melhor os grandes livros.</p>
+        </div>
+
+        <div class="grid-3">
+          <article class="card"><h3>Leitores exigentes</h3><p>Para quem quer descobrir ou reler clássicos com mais prazer, clareza e profundidade.</p></article>
+          <article class="card"><h3>Professores e escolas</h3><p>Materiais organizados para apoiar aulas, projetos de leitura e formação literária.</p></article>
+          <article class="card"><h3>Clubes e pesquisadores</h3><p>Uma base editorial confiável para debates, estudos e percursos de leitura.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section id="lista" class="section section-white">
+      <div class="container">
+        <div class="lead">
+          <div>
+            <h2>Entre para a lista de leitores.</h2>
+            <p>Receba novidades sobre lançamentos, obras raras, bastidores da curadoria e ofertas especiais da coleção Hiperliteratura.</p>
+          </div>
+
+          <!-- Troque o action abaixo pela URL do seu provedor de e-mail marketing -->
+          <form action="#" method="post">
+            <input type="text" name="nome" placeholder="Seu nome" aria-label="Seu nome">
+            <input type="email" name="email" placeholder="Seu melhor e-mail" aria-label="Seu melhor e-mail" required>
+            <button class="btn btn-primary" type="submit">Quero receber novidades</button>
+            <small style="color:rgba(255,255,255,.72);text-align:center;">Sem spam. Apenas literatura, curadoria e lançamentos.</small>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-cream">
+      <div class="container">
+        <div class="section-head">
+          <h2>Perguntas frequentes.</h2>
+        </div>
+
+        <div class="faq">
+          <details>
+            <summary>O que é a Hiperliteratura?</summary>
+            <p>É uma coleção editorial da Obliq Livros dedicada a transformar clássicos em experiências de leitura expandidas, com curadoria, contexto, design digital e recursos complementares.</p>
+          </details>
+          <details>
+            <summary>Os livros serão digitais ou impressos?</summary>
+            <p>A proposta principal da Hiperliteratura é digital, mas alguns títulos e materiais poderão futuramente ganhar outros formatos editoriais.</p>
+          </details>
+          <details>
+            <summary>A coleção terá apenas clássicos brasileiros?</summary>
+            <p>Não. A coleção reunirá clássicos brasileiros e mundiais, incluindo literatura portuguesa, europeia, gótica, científica, ensaística e obras raras.</p>
+          </details>
+          <details>
+            <summary>Haverá obras inéditas no Brasil?</summary>
+            <p>Sim. Uma das ambições do projeto é recuperar títulos raros, pouco acessíveis e muitos inéditos no mercado editorial brasileiro contemporâneo.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-inner">
+      <div>
+        <strong style="color:#fff;">Hiperliteratura</strong><br>
+        Uma coleção da Obliq Livros. Curadoria: C.S. Soares.
+      </div>
+      <div>
+        <a href="https://hiperliteratura.com.br">hiperliteratura.com.br</a>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
