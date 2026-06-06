@@ -1,0 +1,19 @@
+LANDING PAGE — A BIOGRAFIA DE A MÃO E A LUVA
+
+Arquivos:
+- index.html
+- assets/style.css
+- assets/script.js
+- assets/mao-luva.png
+- assets/dom-casmurro.png
+- assets/guerra-dos-mundos.png
+- assets/cs-soares.jpg
+
+Instalação:
+Envie a pasta inteira para sua hospedagem mantendo a estrutura.
+
+Teste local:
+Dê duplo clique em index.html.
+
+Leads:
+O formulário salva no navegador via localStorage. Use “Exportar leads em CSV”.
